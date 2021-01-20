@@ -95,7 +95,7 @@ extra_aur_packages:
   - wordnet-cli
   - urxvt-vim-scrollback-git
   - powerline-console-fonts
-  - cling-git
+  - cling-bin
   - erfa
   - python-astropy
   - github-cli
