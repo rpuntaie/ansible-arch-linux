@@ -91,16 +91,10 @@ extra_packages:
   - code
 
 extra_aur_packages:
-  - mimeo 
-  - mkosi-git
-  - rstudio-desktop-bin
   - waf-git
   - wordnet-cli
   - urxvt-vim-scrollback-git
   - powerline-console-fonts
-  - psysh
-  - leiningen
-  - planck-git
   - cling-git
   - erfa
   - python-astropy
