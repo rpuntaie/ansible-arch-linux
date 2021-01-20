@@ -40,8 +40,8 @@
 
 - name: install host-specific packages from repo
   pacman:
-    name: "{{ host_extra_packages }}"
-  when: host_extra_packages | length > 0
+    name: "{{ guest_extra_packages }}"
+  when: guest_extra_packages | length > 0
 
 - name: install host-specific packages from AUR
   aur:

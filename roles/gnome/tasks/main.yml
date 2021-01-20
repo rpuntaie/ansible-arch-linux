@@ -27,25 +27,25 @@
   become: yes
   become_user: "{{ user.name }}"
 
-- name: create DConf database dir
+- name: create dconf database dir
   file:
     path: /etc/dconf/db/gnome.d
     state: directory
     recurse: yes
 
-- name: create DConf profile dir
+- name: create dconf profile dir
   file:
     path: /etc/dconf/profile
     state: directory
     recurse: yes
 
-- name: configure DConf database
+- name: configure dconf database
   copy:
-    src: dconf.conf
-    dest: /etc/dconf/db/gnome.d/ruslan.conf
+    src: mygnome.conf
+    dest: /etc/dconf/db/gnome.d/mygnome.conf
   notify: update dconf database
 
-- name: configure DConf profile
+- name: configure dconf profile
   lineinfile:
     path: /etc/dconf/profile/user
     line: "{{ item }}"

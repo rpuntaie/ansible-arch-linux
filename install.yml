@@ -5,7 +5,7 @@
 
   vars_prompt:
     - name: user_password
-      prompt: "User password:"
+      prompt: "User password"
       private: yes
       confirm: yes
 
@@ -51,7 +51,7 @@
 
     - name: close LUKS encrypted devices
       command: "cryptsetup luksClose /dev/mapper/arch-{{ item.name }}"
-      with_items: "{{ drive.partitions }}"
+      with_items: "{{ partition.partitions }}"
       when: item.encrypt
 
     - name: reboot

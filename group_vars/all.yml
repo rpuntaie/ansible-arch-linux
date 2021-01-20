@@ -4,28 +4,27 @@
 # corresponding file in `host_vars`.
 machine_aliases:
   VirtualBox: vbox.yml
-  XPS 13 9300: xps.yml
 
 arch_root: /mnt
 
-country: United States
-timezone: America/Los_Angeles
+country: Austria
+timezone: Europe/Vienna
 locales:
   - en_US
   - uk_UA
 
 user:
-  name: ruslan
-  group: ruslan
+  name: roland
+  group: roland
   uid: 1000
-  comment: Ruslan Kiyanchuk
+  comment: Roland Puntaier
   groups:
     - sys
     - video
     - wheel
     - systemd-journal
   shell: /bin/zsh
-  email: ruslan.kiyanchuk@gmail.com
+  email: roland.puntaier@gmail.com
 
 extra_packages:
   # system
@@ -36,9 +35,7 @@ extra_packages:
   - ripgrep
   - tldr
   - tmux
-  - tmuxp
   - usbutils
-  - tilix
 
   # network 
   - mtr
@@ -69,19 +66,18 @@ extra_packages:
   - inkscape
 
   # misc
-  - keepassxc
+  - pass
   - libreoffice-still
 
   # spellcheck
-  - aspell
-  - aspell-en
-  - aspell-ru
-  - aspell-uk
-  - hunspell
-  - hunspell-en_US
-  - hunspell-he
+  - vim-spell-en
+  - vim-spell-ru
+  - vim-spell-it
+  - vim-spell-de
+  - vim-spell-fr
+  - vim-spell-es
 
-  # developemnt
+  # development
   - clang
   - cloc
   - gdb
@@ -92,20 +88,29 @@ extra_packages:
   - python-pip
   - python-pynvim
   - python-jedi
+  - code
 
 extra_aur_packages:
-  - chromium-widevine  # Google's Content Decryption Module plugin.
-  - dropbox
+  - mimeo 
+  - mkosi-git
+  - rstudio-desktop-bin
+  - waf-git
+  - wordnet-cli
+  - urxvt-vim-scrollback-git
+  - powerline-console-fonts
+  - psysh
+  - leiningen
+  - planck-git
+  - cling-git
+  - erfa
+  - python-astropy
   - github-cli
-  - nautilus-dropbox
-  - tectonic
-  - visual-studio-code-bin
 
 dotfiles:
-  repo: "https://github.com/rkiyanchuk/dotfiles"
-  install_cmds:
-    - "stow -d ${HOME}/dotfiles -S yay tilix zsh tmux git gnupg neovim"
-    - "stow -d ${HOME}/dotfiles -S chromium goldendict sage"
+  repo: "https://github.com/rpuntaie/dotfiles"
+  dest: "${HOME}/.dotfiles"
+  install_shell_cmds:
+    - "./install"
   deps:
     - stow
-    - ctags
+    - xdg-user-dirs

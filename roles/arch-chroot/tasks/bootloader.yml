@@ -25,14 +25,14 @@
 - name: install bootloader
   command: "bootctl install"
 
-# Used in boot-entry.j2 template.
-- name: retrieve UUIDs of encrypted partitions
-  command: blkid -s UUID -o value /dev/disk/by-partlabel/{{ drive.partitions.0.name }}
+# Used in boot-encrypted.j2 and boot-non-encrypted.j2 templates
+- name: retrieve UUIDs of partitions
+  command: "blkid -s UUID -o value /dev/disk/by-partlabel/{{ partition.partitions.0.name }}"
   register: root_uuid
 
 - name: create systemd-boot entry
   template:
-    src: boot-entry.j2
+    src: "{{ 'boot-encrypted.j2' if partition.partitions.0.encrypt else 'boot-non-encrypted.j2' }}"
     dest: /boot/loader/entries/arch.conf
 
 - name: configure systemd-boot

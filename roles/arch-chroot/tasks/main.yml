@@ -2,7 +2,7 @@
 - import_tasks: locales.yml
 
 - name: configure repository mirrors
-  command: "reflector --sort score -p https --country '{{ country }}' --save /etc/pacman.d/mirrorlist"
+  command: "reflector --sort score -p https --save /etc/pacman.d/mirrorlist"
 
 - name: upgrade system to latest state
   pacman:

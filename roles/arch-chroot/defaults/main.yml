@@ -1,6 +1,6 @@
 hostname: localhost
-timezone: America/Los_Angeles
-country: United States
+timezone: Europe/Vienna
+country: Austria
 locales:
   - en_US
 
