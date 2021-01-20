@@ -12,7 +12,7 @@
       - gnome-tweaks
       - gendesk
 
-- name: enable GDM
+- name: enable gdm
   systemd:
     name: gdm
     state: started
